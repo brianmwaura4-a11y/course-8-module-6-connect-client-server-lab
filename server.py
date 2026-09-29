@@ -24,7 +24,7 @@ def get_events():
 def create_event():
     data = request.get_json()
 
-    if not data or "title" in data:
+    if not data or "title" not in data:
         return jsonify({"error": "Title is required"}), 400
 
     new_event = {
@@ -37,4 +37,4 @@ def create_event():
     return jsonify(new_event), 201
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5555)
+    app.run(debug=True)
